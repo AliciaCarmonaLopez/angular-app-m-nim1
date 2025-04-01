@@ -4,6 +4,7 @@ import { PacketComponent } from './packet/packet.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchComponent } from './search/search.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { ChatComponent } from './chat/chat.component';
 
 export const routes: Routes = [
   // Define aquí tus rutas
@@ -11,6 +12,7 @@ export const routes: Routes = [
   {path: 'user-component', component: UserComponent},
   {path: 'register-component', component: RegisterFormComponent},
   { path: 'search', component: SearchComponent },
+  {path: 'chat-component', component: ChatComponent},
   { path: '',   redirectTo: '/user-component', pathMatch: 'full' },
   {path: '**', component: PageNotFoundComponent},
 ];

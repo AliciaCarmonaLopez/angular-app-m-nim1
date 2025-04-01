@@ -5,10 +5,12 @@ import { UserPackagesComponent } from '../user-packages/user-packages.component'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { CommunicationService } from '../services/communication.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user',
-  imports: [CommonModule, FormsModule, MatPaginatorModule, UserPackagesComponent],
+  imports: [CommonModule, FormsModule, MatPaginatorModule, UserPackagesComponent, RouterLink, RouterLinkActive],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
   standalone: true
@@ -29,7 +31,7 @@ export class UserComponent implements OnInit {
   mostrarModal = false; // Controla la visibilidad del modal
   paquetesSeleccionados: any[] = []; // Almacena los paquetes del usuario seleccionado
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef, private communicationService: CommunicationService) {
     this.usersList = [];
   }
 
@@ -140,5 +142,9 @@ export class UserComponent implements OnInit {
 
 cerrarModal(): void {
   this.mostrarModal = false; // Oculta el modal
+}
+
+sendUserId(userid: string|undefined): void {
+  this.communicationService.sendUsername('userid');
 }
 }

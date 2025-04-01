@@ -18,6 +18,15 @@
             <!-- Botón para ver paquetes -->
             <button class="view-packages-button" (click)="verPaquetes(usuario)">Ver Paquetes</button>
           </td>
+          <td>
+            <a class="button"
+            routerLink="/chat-component"
+            routerLinkActive="activebutton"
+            ariaCurrentWhenActive="page"
+            (click)="sendUserId(usuario._id)">
+            Go to chat
+          </a>
+          </td>
         </tr>
       </tbody>
     </table>

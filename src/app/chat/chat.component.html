@@ -1,0 +1,18 @@
+
+<div>
+  <input [(ngModel)]="message" placeholder="Escribe tu mensaje..." />
+</div>
+<div>
+  <input [(ngModel)]="recieverName" placeholder="A que usuario quieres enviar..." />
+  <button (click)="send()">Enviar</button>
+</div>
+<div>
+  <input [(ngModel)]="user2name" placeholder="De quien quuieres ver los mensajes..." />
+  <button (click)="verHistorial()">Ver Historial</button>
+  <li>
+    <div *ngFor="let message of messageList">
+      <strong>{{ message.sender }}:</strong> {{ message.content }}
+      <button (click)="deleteMessage()">>Delete</button>
+    </div>
+  </li>
+</div>
